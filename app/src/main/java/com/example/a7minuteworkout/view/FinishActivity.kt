@@ -1,10 +1,7 @@
-package com.example.a7minuteworkout
+package com.example.a7minuteworkout.view
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.a7minuteworkout.databinding.ActivityFinishBinding
 
 class FinishActivity : AppCompatActivity() {

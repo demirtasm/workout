@@ -1,10 +1,13 @@
-package com.example.a7minuteworkout
+package com.example.a7minuteworkout.model
+
+import com.example.a7minuteworkout.R
 
 object Constants {
 
     fun defaultExerciseList(): ArrayList<ExerciseModel>{
         val exerciseList = ArrayList<ExerciseModel>()
-        val jumpingJack = ExerciseModel(1, "Jumping Jacks",R.drawable.ic_jumping_jacks, false, false)
+        val jumpingJack = ExerciseModel(1, "Jumping Jacks",
+            R.drawable.ic_jumping_jacks, false, false)
         exerciseList.add(jumpingJack)
         val wallSit = ExerciseModel(2, "Wall Sit", R.drawable.ic_lunge, false, false)
         exerciseList.add(wallSit)

@@ -1,12 +1,8 @@
-package com.example.a7minuteworkout
+package com.example.a7minuteworkout.view
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.FrameLayout
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.a7minuteworkout.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -21,6 +17,11 @@ class MainActivity : AppCompatActivity() {
        // val flStartButton : FrameLayout = findViewById(R.id.flStart)
         binding?.flStart?.setOnClickListener {
             val intent = Intent(this, ExerciseActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding?.flBMI?.setOnClickListener {
+            val intent = Intent(this, BMIActivity::class.java)
             startActivity(intent)
         }
 
