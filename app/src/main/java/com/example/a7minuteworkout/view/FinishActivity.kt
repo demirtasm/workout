@@ -2,13 +2,14 @@ package com.example.a7minuteworkout.view
 
 import android.icu.util.Calendar
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.a7minuteworkout.app.WorkoutApp
 import com.example.a7minuteworkout.databinding.ActivityFinishBinding
-import com.example.a7minuteworkout.model.HistoryDao
+import com.example.a7minuteworkout.database.HistoryDao
 import com.example.a7minuteworkout.model.HistoryEntity
+import com.example.a7minuteworkout.viewmodel.HistoryViewModel
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Locale
@@ -16,12 +17,13 @@ import java.util.Locale
 class FinishActivity : AppCompatActivity() {
 
     private var binding:ActivityFinishBinding?= null
-
+    private lateinit var historyViewModel: HistoryViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityFinishBinding.inflate(layoutInflater)
         setContentView(binding?.root)
 
+        historyViewModel = ViewModelProvider(this).get(HistoryViewModel::class.java)
         setSupportActionBar(binding?.toolbarFinishActivity)
         if (supportActionBar != null) {
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -33,18 +35,16 @@ class FinishActivity : AppCompatActivity() {
         binding?.btnFinish?.setOnClickListener {
             finish()
         }
-        val dao = (application as WorkoutApp).db.historyDao()
-        addDateToDatabase(dao)
+        addDateToDatabase()
     }
 
-    private fun addDateToDatabase(historyDao: HistoryDao){
+    private fun addDateToDatabase(){
 
         val c = Calendar.getInstance()
         val dateTime = c.time
         val sdf = SimpleDateFormat("dd MM yyy HH:mm:ss", Locale.getDefault())
         val date = sdf.format(dateTime)
-        lifecycleScope.launch {
-            historyDao.insert(HistoryEntity(date))
-        }
+
+        historyViewModel.insertHistory(HistoryEntity(date))
     }
 }

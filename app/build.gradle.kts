@@ -58,4 +58,9 @@ dependencies {
 
     // Room KTX (Coroutines desteği)
     implementation(libs.androidx.room.ktx)
+    // ViewModel ve LiveData için
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
+
+    // Coroutines için
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
 }

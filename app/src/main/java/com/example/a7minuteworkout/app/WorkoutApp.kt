@@ -1,7 +1,7 @@
 package com.example.a7minuteworkout.app
 
 import android.app.Application
-import com.example.a7minuteworkout.model.HistoryDatabase
+import com.example.a7minuteworkout.database.HistoryDatabase
 
 class WorkoutApp: Application() {
 

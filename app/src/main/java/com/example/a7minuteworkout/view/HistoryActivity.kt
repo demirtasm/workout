@@ -2,17 +2,13 @@ package com.example.a7minuteworkout.view
 
 import android.os.Bundle
 import android.view.View
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.a7minuteworkout.R
 import com.example.a7minuteworkout.app.WorkoutApp
 import com.example.a7minuteworkout.databinding.ActivityHistoryBinding
 import com.example.a7minuteworkout.model.HistoryAdapter
-import com.example.a7minuteworkout.model.HistoryDao
+import com.example.a7minuteworkout.database.HistoryDao
 import kotlinx.coroutines.launch
 
 class HistoryActivity : AppCompatActivity() {
